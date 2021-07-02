@@ -8,7 +8,7 @@ public class PositionType {
     private String value;
 
     public PositionType() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
 

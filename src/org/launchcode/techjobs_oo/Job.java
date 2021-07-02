@@ -1,6 +1,7 @@
 package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
+import java.lang.*;
 
 public class Job {
 
@@ -14,7 +15,8 @@ public class Job {
     private CoreCompetency coreCompetency;
 
     public Job() {
-        this.id = id;
+        this.id = nextId;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
