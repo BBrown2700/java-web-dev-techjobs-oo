@@ -4,20 +4,26 @@ import java.util.Objects;
 import java.lang.*;
 
 public class Job {
-
     private int id;
     private static int nextId = 1;
-
     private String name;
+    private String value;
+
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
+
+    public Job(String value) {
+        this();
+        this.value = value;
+    }
+
     private Employer employer;
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    public Job() {
-        this.id = nextId;
-        nextId++;
-    }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
@@ -94,4 +100,32 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+    @Override
+    public String toString() {
+        String output = "";
+        if(name.equals("")){
+           name="Data not available";
+        }
+        if(employer.getValue().equals("") || employer.getValue() == null){
+            employer.setValue("Data not available");
+        }
+        if(location.getValue().equals("") || location.getValue() == null){
+            location.setValue("Data not available");
+        }
+        if(positionType.getValue().equals("") || positionType.getValue() == null){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not available");
+        }
+
+        output = String.format("\nID: %d\n" +
+                "Name: %s\n" +
+                "Employer: %s\n" +
+                "Location: %s\n" +
+                "Position Type: %s\n" +
+                "Core Competency: %s\n",id, name,employer, location, positionType, coreCompetency);
+    return output;
+    }
 }
+
